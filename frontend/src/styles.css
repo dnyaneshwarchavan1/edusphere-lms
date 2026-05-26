@@ -1,0 +1,504 @@
+:root {
+  --ink: #172126;
+  --muted: #64748b;
+  --line: #e5e7eb;
+  --brand: #0f766e;
+  --brand-dark: #134e4a;
+  --surface: #ffffff;
+  --soft: #f7faf9;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #f8fafc;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  min-height: calc(100vh - 58px);
+}
+
+.site-footer {
+  margin-top: 48px;
+  color: #d8e4e2;
+  background:
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.36), transparent 36%),
+    linear-gradient(135deg, #112528, #0f172a 58%, #1f2937);
+}
+
+.footer-copy {
+  max-width: 420px;
+  color: #b7c7c5;
+}
+
+.footer-title {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #f4fbfa;
+}
+
+.footer-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.footer-list li {
+  margin-bottom: 8px;
+  color: #c6d4d2;
+}
+
+.brand {
+  color: var(--brand-dark);
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border-radius: 7px;
+}
+
+.notification-shell {
+  position: relative;
+}
+
+.notification-trigger {
+  position: relative;
+}
+
+.notification-count {
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  color: #fff;
+  background: #dc2626;
+  font-size: 0.72rem;
+  line-height: 18px;
+}
+
+.nav-live-indicator {
+  margin-left: 2px;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.socket-live {
+  color: #16a34a;
+}
+
+.socket-idle {
+  color: #94a3b8;
+}
+
+.notification-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 30;
+  width: min(380px, calc(100vw - 24px));
+  max-height: 480px;
+  overflow: auto;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+}
+
+.notification-head {
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.notification-item {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.notification-item:first-of-type {
+  border-top: 0;
+}
+
+.notification-read strong {
+  color: #64748b;
+}
+
+.hero-band {
+  background: linear-gradient(90deg, #ecfdf5, #eef6ff);
+  border-bottom: 1px solid var(--line);
+}
+
+.hero-band h1 {
+  max-width: 760px;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.02;
+  font-weight: 800;
+}
+
+.hero-band p {
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero-img,
+.detail-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.13);
+}
+
+.course-card,
+.panel,
+.auth-card,
+.metric,
+.content-block {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.course-card {
+  overflow: hidden;
+}
+
+.course-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.auth-page {
+  min-height: calc(100vh - 58px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  padding: 24px;
+}
+
+.auth-card label {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.dashboard-row,
+.lesson-row,
+.small-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.dashboard-button {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  text-align: left;
+}
+
+.lesson-body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.lesson-media,
+.lesson-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lesson-video-frame,
+.lesson-video-player {
+  width: min(100%, 720px);
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0f172a;
+}
+
+.lesson-video-frame {
+  display: block;
+}
+
+.quiz-builder {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fafcfd;
+}
+
+.dashboard-row:first-of-type,
+.lesson-row:first-of-type,
+.small-stat:first-of-type {
+  border-top: 0;
+}
+
+.quiz-question {
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+}
+
+.option-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.quiz-submit-done {
+  border-color: #0f766e;
+  color: #0f766e;
+  background: #ecfdf5;
+}
+
+.quiz-submit-done:hover,
+.quiz-submit-done:focus {
+  border-color: #0f766e;
+  color: #0f766e;
+  background: #dcfce7;
+}
+
+.metric {
+  padding: 18px;
+}
+
+.metric span {
+  display: block;
+  color: var(--muted);
+}
+
+.metric strong {
+  font-size: 2rem;
+}
+
+.analytics-caption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.content-block {
+  padding: 18px;
+  margin-top: 12px;
+}
+
+.payment-panel {
+  background: linear-gradient(135deg, #f8fafc, #f0fdf4);
+}
+
+.payment-amount {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #0f766e;
+  background: #ecfdf5;
+}
+
+.checkout-card {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.payment-receipt {
+  background: linear-gradient(135deg, #f8fffb, #eff6ff);
+}
+
+.certificate-form {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #fcfdff, #f8fafc);
+}
+
+.chat-panel {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+}
+
+.chat-theme-student {
+  border-color: #bfdbfe;
+  background: linear-gradient(135deg, #ffffff, #eff6ff);
+}
+
+.chat-theme-instructor {
+  border-color: #bbf7d0;
+  background: linear-gradient(135deg, #ffffff, #ecfdf5);
+}
+
+.chat-theme-admin {
+  border-color: #fde68a;
+  background: linear-gradient(135deg, #ffffff, #fffbeb);
+}
+
+.chat-contact-list,
+.chat-window {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.chat-contact-list {
+  max-height: 460px;
+  overflow: auto;
+}
+
+.chat-contact {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+}
+
+.chat-contact:first-child {
+  border-top: 0;
+}
+
+.chat-contact-active {
+  background: #eef6ff;
+}
+
+.chat-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.chat-status-online {
+  background: #16a34a;
+}
+
+.chat-status-offline {
+  background: #cbd5e1;
+}
+
+.chat-window-head,
+.chat-compose {
+  padding: 14px;
+}
+
+.chat-window-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.chat-message-list {
+  min-height: 280px;
+  max-height: 320px;
+  overflow: auto;
+  padding: 14px;
+  background: #f8fafc;
+}
+
+.chat-bubble-row {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.chat-bubble-row-own {
+  justify-content: flex-end;
+}
+
+.chat-bubble {
+  max-width: 78%;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.chat-bubble-own {
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.chat-theme-student .chat-bubble-own {
+  border-color: #93c5fd;
+  background: #dbeafe;
+}
+
+.chat-theme-instructor .chat-bubble-own {
+  border-color: #86efac;
+  background: #dcfce7;
+}
+
+.chat-theme-admin .chat-bubble-own {
+  border-color: #fcd34d;
+  background: #fef3c7;
+}
+
+.chat-bubble-peer {
+  background: #fff;
+}
+
+.chat-time {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.chat-compose {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.progress {
+  height: 10px;
+}
+
+.progress-bar {
+  background: var(--brand);
+}
+
+@media (max-width: 640px) {
+  .dashboard-row,
+  .lesson-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

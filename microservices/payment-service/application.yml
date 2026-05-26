@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: edusphere-payment-service
+  datasource:
+    url: jdbc:mysql://localhost:3309/payment_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+
+service:
+  owns:
+    - checkout
+    - payment-verification
+    - transaction-history
+    - revenue-reporting

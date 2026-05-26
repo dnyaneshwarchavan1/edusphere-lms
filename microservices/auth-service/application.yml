@@ -1,0 +1,17 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: edusphere-auth-service
+  datasource:
+    url: jdbc:mysql://localhost:3307/auth_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+
+service:
+  owns:
+    - users
+    - roles
+    - authentication
+    - jwt
