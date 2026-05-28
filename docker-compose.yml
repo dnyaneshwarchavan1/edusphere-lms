@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: edusphere-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: edusphere_lms
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pready"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - edusphere-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: edusphere-backend
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://mysql:3306/edusphere_lms?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_DRIVER: com.mysql.cj.jdbc.Driver
+      JWT_SECRET: ffb6ea25bcbdc649276380abd550fc6d60f6b39c01aba42f64fe117cc7f7118e
+      FRONTEND_URL: http://localhost:3000
+      STORAGE_PROVIDER: local
+    networks:
+      - edusphere-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: edusphere-frontend
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - edusphere-net
+
+networks:
+  edusphere-net:
+    driver: bridge
+
+volumes:
+  mysql-data:

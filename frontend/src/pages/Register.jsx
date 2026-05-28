@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import logo from '../assets/logo.png';
 
 export default function Register() {
   const { register } = useAuth();
@@ -37,7 +38,11 @@ export default function Register() {
   return (
     <div className="auth-page">
       <form className="auth-card" onSubmit={submit}>
-        <h1 className="h4">Create Account</h1>
+        <div className="text-center mb-4">
+          <img src={logo} alt="EduSphere Logo" style={{ height: '64px', width: 'auto', objectFit: 'contain' }} />
+          <h2 className="h4 mt-2 fw-bold" style={{ color: 'var(--brand-dark)' }}>EduSphere</h2>
+        </div>
+        <h1 className="h4 text-center mb-3">Create Account</h1>
         {success && <div className="alert alert-success">{success}</div>}
         {error && <div className="alert alert-danger">{error}</div>}
         <label>Name</label>

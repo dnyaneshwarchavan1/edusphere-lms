@@ -1,0 +1,12 @@
+target/
+pom.xml.releaseBackup
+release.properties
+.git/
+.gitignore
+.idea/
+.vscode/
+*.log
+.env
+.env.local
+.env.development
+.env.production
